@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-example
+  labels:
+    app: front
+spec:
+  replicas: 2 # two pod will be created.
+  selector:
+    matchLabels:
+      app: front
+  template:
+    metadata:
+      labels:
+        app: front
+    spec:
+      containers:
+      - name: containerxyz
+        image: nginx:latest #this image will be brought from docker hub
+        ports:
+        - containerPort: 80
